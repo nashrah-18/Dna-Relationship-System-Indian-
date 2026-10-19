@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Check Database{% endblock %}
+{% block content %}
+<div class="header"><div class="header-content"><div class="logo"><h1> DNA Database</h1></div></div></div>
+<div class="container">
+    <div class="back-container"><a href="/hospital/dashboard" class="btn btn-back">← Back to Dashboard</a></div>
+    <div class="card">
+        <div class="search-bar"><input type="text" id="searchInput" placeholder=" Search by Sample ID or Sex..." onkeyup="filterTable()"></div>
+        <div class="table-container">
+            <table id="dataTable">
+                <thead><tr><th>Sample_ID</th><th>Sex</th><th>Action</th></tr></thead>
+                <tbody>
+                    {% for p in profiles %}
+                    <tr>
+                        <td>{{ p.sample_id }}</td><td>{{ p.sex }}</td>
+                        <td><form action="/hospital/delete/{{ p.sample_id }}" method="post" onsubmit="return confirm('Delete this record?');"><button type="submit" class="btn btn-danger" style="padding: 5px 10px;">Delete</button></form></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function filterTable() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let rows = document.querySelectorAll("#dataTable tbody tr");
+        rows.forEach(row => {
+            let text = row.cells[0].innerText.toLowerCase() + " " + row.cells[1].innerText.toLowerCase();
+            row.style.display = text.includes(input) ? "" : "none";
+        });
+    }
+</script>
+{% endblock %}

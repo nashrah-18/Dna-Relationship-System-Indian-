@@ -1,0 +1,189 @@
+## TERMINAL COMMANDS
+## check:
+# If data/dna_intelligence.db exists, delete it first
+Remove-Item -Path data\dna_intelligence.db -ErrorAction SilentlyContinue
+
+# reload everything from new database file:
+python init_users.py
+python load_data.py
+
+# first run: 
+python run.py
+
+# Sample test cases to try for yourself: 
+
+Pair: A152 vs A160
+Match %: 45.45
+Predicted: Unrelated
+Confidence: Low
+----------------------------------------
+Pair: A086 vs A004
+Match %: 68.18
+Predicted: Unrelated
+Confidence: Low
+----------------------------------------
+Pair: A216 vs A300
+Match %: 81.82
+Predicted: Parent-Child
+Confidence: Medium
+----------------------------------------
+Pair: A039 vs A112
+Match %: 68.18
+Predicted: Cousin
+Confidence: Low
+----------------------------------------
+Pair: A261 vs A233
+Match %: 100.00
+Predicted: Parent-Child
+Confidence: High
+----------------------------------------
+
+to STOP: Crtl + C in terminal
+
+to add data in Hospital and check:
+
+### 1. **Parent‑Child** (≈50% match – 11 out of 22 markers matching A001)
+
+| Field         | Value |
+|---------------|-------|
+| Sample ID     | X001  |
+| Sex           | YX    |
+| AMEL          | 16    |
+| D3S1358       | 16    |
+| VWA           | 18    |
+| D16S539       | 18    |
+| CSF1PO        | 11    |
+| TPOX          | 11    |
+| D8S1179       | 12    |
+| D21S11        | 11    |
+| D18S51        | 11    |
+| DYS391        | 8     |
+| D2S441        | 14    |
+| D19S433       | 13    |
+| THO1          | 29    |
+| FGA           | 29    |
+| D22S1045      | 99    |  ← different
+| D5S818        | 99    |  ← different
+| D13S317       | 99    |  ← different
+| D7S820        | 99    |  ← different
+| SE33          | 99    |  ← different
+| D10S1248      | 99    |  ← different
+| D1S1656       | 99    |  ← different
+| D12S391       | 99    |  ← different
+| D2S1338       | 99    |  ← different
+
+> **Result with A001:** 50.00% → “Parent-Child” (High confidence)
+
+---
+
+### 2. **Sibling** (≈27% match – 6 out of 22 markers matching A001)
+
+| Field         | Value |
+|---------------|-------|
+| Sample ID     | X002  |
+| Sex           | YX    |
+| AMEL          | 16    |
+| D3S1358       | 16    |
+| VWA           | 18    |
+| D16S539       | 18    |
+| CSF1PO        | 11    |
+| TPOX          | 11    |
+| D8S1179       | 12    |
+| D21S11        | 11    |
+| D18S51        | 11    |
+| DYS391        | 8     |
+| D2S441        | 14    |
+| D19S433       | 13    |
+| THO1          | 99    | ← different
+| FGA           | 99    | ← different
+| D22S1045      | 99    | ← different
+| D5S818        | 99    | ← different
+| D13S317       | 99    | ← different
+| D7S820        | 99    | ← different
+| SE33          | 99    | ← different
+| D10S1248      | 99    | ← different
+| D1S1656       | 99    | ← different
+| D12S391       | 99    | ← different
+| D2S1338       | 99    | ← different
+
+> **Result with A001:** 27.27% → “Siblings” (Medium confidence)
+
+---
+
+### 3. **Cousin** (≈14% match – 3 out of 22 markers matching A001)
+
+| Field         | Value |
+|---------------|-------|
+| Sample ID     | X003  |
+| Sex           | XX    | ← different sex
+| AMEL          | 16    |
+| D3S1358       | 16    |
+| VWA           | 18    |
+| D16S539       | 18    |
+| CSF1PO        | 99    | ← different
+| TPOX          | 99    | ← different
+| D8S1179       | 99    | ← different
+| D21S11        | 99    | ← different
+| D18S51        | 99    | ← different
+| DYS391        | 99    | ← different
+| D2S441        | 99    | ← different
+| D19S433       | 99    | ← different
+| THO1          | 99    | ← different
+| FGA           | 99    | ← different
+| D22S1045      | 99    | ← different
+| D5S818        | 99    | ← different
+| D13S317       | 99    | ← different
+| D7S820        | 99    | ← different
+| SE33          | 99    | ← different
+| D10S1248      | 99    | ← different
+| D1S1656       | 99    | ← different
+| D12S391       | 99    | ← different
+| D2S1338       | 99    | ← different
+
+> **Result with A001:** 13.64% → “Cousins” (Low confidence)
+
+---
+
+### 4. **Unrelated** (≈5% match – 1 out of 22 markers matching A001)
+
+| Field         | Value |
+|---------------|-------|
+| Sample ID     | X004  |
+| Sex           | YX    |
+| AMEL          | 99    | ← different
+| D3S1358       | 99    | ← different
+| VWA           | 99    | ← different
+| D16S539       | 99    | ← different
+| CSF1PO        | 99    | ← different
+| TPOX          | 99    | ← different
+| D8S1179       | 99    | ← different
+| D21S11        | 99    | ← different
+| D18S51        | 99    | ← different
+| DYS391        | 99    | ← different
+| D2S441        | 99    | ← different
+| D19S433       | 99    | ← different
+| THO1          | 99    | ← different
+| FGA           | 99    | ← different
+| D22S1045      | 99    | ← different
+| D5S818        | 99    | ← different
+| D13S317       | 99    | ← different
+| D7S820        | 99    | ← different
+| SE33          | 99    | ← different
+| D10S1248      | 99    | ← different
+| D1S1656       | 99    | ← different
+| D12S391       | 99    | ← different
+| D2S1338       | 14    | ← only one matching marker
+
+> **Result with A001:** 4.55% → “Unrelated” (Low confidence)
+
+---
+
+### How to use
+
+1. Log in to **Hospital** (e.g., H01).
+2. Scroll to “Add New DNA Profile”.
+3. Fill in the fields with the values from one of the tables above (use a different Sample ID for each, e.g., X001, X002, X003, X004).
+4. Click **Add Profile**.
+5. Go to **Police** → **Find Relationship** → Compare `A001` with the new ID you added.
+
+You will see the predicted relationship and confidence exactly as described.

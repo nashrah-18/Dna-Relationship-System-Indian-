@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="text-align: center; padding: 60px 20px;">
+    <h1 style="color: #1a73e8;">🧬INDIAN DNA AI INTELLIGENCE SYSTEM</h1>
+    <div class="two-buttons">
+        <form action="/select_sector" method="post">
+            <button name="sector" value="hospital" class="btn btn-primary">Hospital</button>
+        </form>
+        <form action="/select_sector" method="post">
+            <button name="sector" value="police" class="btn btn-primary">Police Department</button>
+        </form>
+        <form action="/select_sector" method="post">
+            <button name="sector" value="government" class="btn btn-primary">Government Headquarters</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

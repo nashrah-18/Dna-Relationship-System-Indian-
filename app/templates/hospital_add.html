@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="header">
+    <div class="header-content">
+        <div class="logo"><h1>➕ Add DNA Profile</h1></div>
+    </div>
+</div>
+<div class="container">
+    <a href="/hospital/dashboard" class="btn btn-back">← Back</a>
+    <div class="card">
+        <form action="/hospital/add" method="post">
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px">
+                <input type="text" name="sample_id" placeholder="Sample ID" required>
+                <input type="text" name="sex" placeholder="Sex (XX/XY)" required>
+                <input type="number" name="amel" placeholder="AMEL" value="0">
+                <input type="number" name="d3s1358" placeholder="D3S1358" value="0">
+                <input type="number" name="vwa" placeholder="VWA" value="0">
+                <input type="number" name="d16s539" placeholder="D16S539" value="0">
+                <input type="number" name="csf1po" placeholder="CSF1PO" value="0">
+                <input type="number" name="tpox" placeholder="TPOX" value="0">
+                <input type="number" name="d8s1179" placeholder="D8S1179" value="0">
+                <input type="number" name="d21s11" placeholder="D21S11" value="0">
+                <input type="number" name="d18s51" placeholder="D18S51" value="0">
+                <input type="number" name="dys391" placeholder="DYS391" value="0">
+                <input type="number" name="d2s441" placeholder="D2S441" value="0">
+                <input type="number" name="d19s433" placeholder="D19S433" value="0">
+                <input type="number" name="tho1" placeholder="THO1" value="0">
+                <input type="number" name="fga" placeholder="FGA" value="0">
+                <input type="number" name="d22s1045" placeholder="D22S1045" value="0">
+                <input type="number" name="d5s818" placeholder="D5S818" value="0">
+                <input type="number" name="d13s317" placeholder="D13S317" value="0">
+                <input type="number" name="d7s820" placeholder="D7S820" value="0">
+                <input type="number" name="se33" placeholder="SE33" value="0">
+                <input type="number" name="d10s1248" placeholder="D10S1248" value="0">
+                <input type="number" name="d1s1656" placeholder="D1S1656" value="0">
+                <input type="number" name="d12s391" placeholder="D12S391" value="0" step="0.1">
+                <input type="number" name="d2s1338" placeholder="D2S1338" value="0">
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top:20px;">Add Profile</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
